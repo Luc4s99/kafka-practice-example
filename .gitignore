@@ -1,3 +1,7 @@
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+.cmd
+
 # Compiled class file
 *.class
 

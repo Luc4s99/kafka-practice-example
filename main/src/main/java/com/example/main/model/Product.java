@@ -9,12 +9,20 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "PRODUCT")
-@AllArgsConstructor
-@NoArgsConstructor
 public class Product {
 
+    public Product() {
+    }
+
+    public Product(Integer idProduct, String description, double salePrice, double costPrice) {
+        this.idProduct = idProduct;
+        this.description = description;
+        this.salePrice = salePrice;
+        this.costPrice = costPrice;
+    }
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_PRODUCT")
     @Getter @Setter
     @JsonProperty("idProduct")
@@ -28,12 +36,12 @@ public class Product {
     @Column(name = "SALE_PRICE")
     @Getter @Setter
     @JsonProperty("salePrice")
-    private Double salePrice;
+    private double salePrice;
 
     @Column(name = "COST_PRICE")
     @Getter @Setter
     @JsonProperty("costPrice")
-    private Double costPrice;
+    private double costPrice;
 
     @Override
     public String toString() {

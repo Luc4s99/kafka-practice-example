@@ -1,21 +1,25 @@
 package com.example.main;
 
-import com.example.main.model.Product;
-import com.example.main.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 @SpringBootApplication
 public class MainApplication {
 
-	@Autowired
-	private KafkaTemplate<String, String> kafkaTemplate;
-
 	public static void main(String[] args) {
 
 		SpringApplication.run(MainApplication.class, args);
+	}
+
+	@Bean
+	ApplicationRunner runner(Factory factory) {
+
+		return args -> {
+
+			factory.start();
+		};
 	}
 }

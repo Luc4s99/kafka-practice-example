@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_PRODUCT")
     @Getter @Setter
     @JsonProperty("idProduct")

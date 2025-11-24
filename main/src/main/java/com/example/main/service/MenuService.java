@@ -20,4 +20,16 @@ public class MenuService {
 
         return productRepository.save(p);
     }
+
+    @Transactional
+    public void delete(Product p) {
+
+        productRepository.delete(p);
+    }
+
+    @Transactional
+    public Product randomProduct() {
+
+        return productRepository.randomProduct();
+    }
 }
